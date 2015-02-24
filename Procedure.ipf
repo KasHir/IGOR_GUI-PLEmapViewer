@@ -1,7 +1,16 @@
 #pragma rtGlobals=1		// Use modern global access method.
 
-function hoge()
-	dowindow/k graph0
+// If Graph 0 exists already, Kill it once
+function resetGraph0()
+	DoWindow Graph0
+	if (V_flag == 1)
+		// graph window exist
+		dowindow/k Graph0	// kill Graph0
+		return 1
+	else
+		// graph window unexist
+		return 0
+	endif
 end
 
 
@@ -66,8 +75,8 @@ function appendgraph0(w)
 end
 
 Window Graph0() : Graph
+	resetGraph0()
 	display w2 vs w1
-	//hoge()
 	style_Wave()
 	color("w2", 255, 0, 0)
 	appendtograph w4 vs w3
