@@ -18,6 +18,7 @@ Window Graph0() : Graph
 	appendGraph0()
 end
 
+
 // If Graph exists already, Kill it once
 function resetGraph(g)
 	string g
@@ -66,6 +67,9 @@ function getOmega(n, m)
 	endif
 end
 
+// ----------------------------------
+//  style
+// ----------------------------------
 function style_E()
 	// unused now
 end
@@ -76,6 +80,15 @@ function style_Wave()
 	Label bottom "E11 (nm)";DelayUpdate
 	SetAxis left 0,3000;DelayUpdate
 	SetAxis bottom 0,3000;DelayUpdate
+	ModifyGraph height={Aspect,1}
+end
+
+function style_Omg()
+	ModifyGraph grid=1,tick=2,mirror=1,gridHair=3;DelayUpdate
+	Label left "E11, E22 (nm)";DelayUpdate
+	Label bottom "Omega_RBM (cm^-1)";DelayUpdate
+	SetAxis left 0,3000;DelayUpdate
+	SetAxis bottom 0,600;DelayUpdate
 	ModifyGraph height={Aspect,1}
 end
 
