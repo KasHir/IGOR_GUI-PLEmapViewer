@@ -8,6 +8,9 @@
 // =================================================
 #pragma rtGlobals=1		// Use modern global access method.
 
+// ----------------------------------
+//  PLE map Graph
+// ----------------------------------
 Window Graph0() : Graph
 	resetGraph("Graph0")
 	display w1 vs w0
@@ -55,7 +58,9 @@ function resetGraph(g)
 	endif
 end
 
-
+// ----------------------------------
+//  GET Value Function
+// ----------------------------------
 function getE11(n, m)
 	variable n,m
 	wave e11 = $"E11_n"+num2str(n) 
@@ -132,10 +137,9 @@ function appendGraph0()
 	color("w5", 0, 0, 255)	// blue
 end
 
-/////////////////////////////////////
-// Functions on GUI
-/////////////////////////////////////
-
+// ----------------------------------
+//   Functions on GUI
+// ----------------------------------
 Function Get_Data(ctrlName,varNum,varStr,varName) : SetVariableControl
 	String ctrlName
 	Variable varNum
