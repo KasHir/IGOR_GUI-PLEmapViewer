@@ -1,3 +1,11 @@
+// ==================================================
+// GUI-PLEmapViewer
+//  - Auth: KasHir
+//  - since 2015/2/22
+//
+// [GitHub]
+//  - https://github.com/KasHir/IGOR_GUI-PLEmapViewer
+// =================================================
 #pragma rtGlobals=1		// Use modern global access method.
 
 // If Graph 0 exists already, Kill it once
