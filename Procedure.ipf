@@ -150,31 +150,61 @@ Function ButtonProc(ctrlName) : ButtonControl
 	String ctrlName
 	NVAR/Z n0,m0
 	
+	// E11, E22; PLE map
 	make/N=1/O w0
 	make/N=1/O w1
 	
 	w0 = getE11(n0, m0)
 	w1 = getE22(n0, m0)
+	
+	// Omega; coherent phonon map
+	make/N=1/O o0
+	make/N=1/O o0_e11
+	make/N=1/O o0_e22
+	
+	o0 = getOmega(n0, m0)
+	o0_e11 = getE11(n0, m0)
+	o0_e22 = getE22(n0, m0)
 End
 
 Function ButtonProc_1(ctrlName) : ButtonControl
 	String ctrlName
 	NVAR/Z n1, m1
 	
+	// E11, E22; PLE map
 	make/N=1/O w2
 	make/N=1/O w3
 	
 	w2 = getE11(n1, m1)
 	w3 = getE22(n1, m1)
+	
+	// Omega; coherent phonon map
+	make/N=1/O o1
+	make/N=1/O o1_e11
+	make/N=1/O o1_e22
+	
+	o1 = getOmega(n1, m1)
+	o1_e11 = getE11(n1, m1)
+	o1_e22 = getE22(n1, m1)
 End
 
 Function ButtonProc_2(ctrlName) : ButtonControl
 	String ctrlName
 	NVAR/Z n2,m2
 	
+	// E11, E22; PLE map
 	make/N=1/O w4
 	make/N=1/O w5
 	
 	w4 = getE11(n2, m2)
 	w5 = getE22(n2, m2)
+	
+	// Omega; coherent phonon map
+	make/N=1/O o2
+	make/N=1/O o2_e11
+	make/N=1/O o2_e22
+	
+	o2 = getOmega(n2, m2)
+	o2_e11 = getE11(n2, m2)
+	o2_e22 = getE22(n2, m2)
 End
