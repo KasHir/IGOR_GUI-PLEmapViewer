@@ -8,6 +8,16 @@
 // =================================================
 #pragma rtGlobals=1		// Use modern global access method.
 
+Window Graph0() : Graph
+	resetGraph0()
+	display w1 vs w0
+	style_Wave()
+	color("w1", 255, 0, 0)
+	
+	// plot the other points
+	appendGraph0()
+end
+
 // If Graph 0 exists already, Kill it once
 function resetGraph0()
 	DoWindow Graph0
@@ -46,12 +56,7 @@ end
 
 
 function style_E()
-	ModifyGraph grid=1,tick=2,mirror=1,gridHair=3;DelayUpdate
-	Label left "E (eV)";DelayUpdate
-	Label bottom "E (eV)";DelayUpdate
-	SetAxis left 0,3000;DelayUpdate
-	SetAxis bottom 0,3000;DelayUpdate
-	ModifyGraph height={Aspect,1}
+	// unused now
 end
 
 function style_Wave()
@@ -64,30 +69,26 @@ function style_Wave()
 end
 
 function color(w, r,g,b)
-	string w
-	variable r,g,b
+	string w		//wave name
+	variable r,g,b	// R,G,B; 0 to 255
 	ModifyGraph mode($w)=3,marker($w)=19,msize($w)=4,rgb($w)=(r/255*65280,g/255*65280,b/255*65280)
 end
 
-function appendgraph0()
-	DoWindow/F graph0
+function appendGraph0()
+	// append C(n1,m1)
+	DoWindow/F graph0	// select target graph
 	appendToGraph w3 vs w2
-	color("w3", 0, 255, 0)
+	color("w3", 0, 255, 0)	// green
 	
-	DoWindow/F graph0
+	// append C(n2, m2)
+	DoWindow/F graph0	// select target graph
 	appendToGraph w5 vs w4
-	color("w5", 0, 0, 255)
+	color("w5", 0, 0, 255)	// blue
 end
 
-Window Graph0() : Graph
-	resetGraph0()
-	display w1 vs w0
-	style_Wave()
-	color("w1", 255, 0, 0)
-	appendgraph0()
-	
-end
-
+/////////////////////////////////////
+// Functions on GUI
+/////////////////////////////////////
 
 Function Get_Data(ctrlName,varNum,varStr,varName) : SetVariableControl
 	String ctrlName
@@ -96,32 +97,27 @@ Function Get_Data(ctrlName,varNum,varStr,varName) : SetVariableControl
 	String varName
 	NVAR/Z n0,m0,n1,m1,n2,m2
 	
-	print ctrlName
-	print varNum
-	print varStr
-	print varName
-	
 	chkValue()
 End
 
 function chkValue()
 	NVAR/Z n0,m0,n1,m1,n2,m2
 	if( getE11(n0, m0) == -1 || getE22(n0, m0) == -1)
-		Button button0 disable=2
+		Button button0 disable=2	// disable
 	else
-		Button button0 disable=0
+		Button button0 disable=0	// enable
 	endif
 
 	if( getE11(n1, m1) == -1 || getE22(n1, m1) == -1)
-		Button button1 disable=2
+		Button button1 disable=2	// disable
 	else
-		Button button1 disable=0
+		Button button1 disable=0	// enable
 	endif
 	
 	if( getE11(n2, m2) == -1 || getE22(n2, m2) == -1 )
-		Button button2 disable=2
+		Button button2 disable=2	// disable
 	else
-		Button button2 disable=0
+		Button button2 disable=0	// enable
 	endif
 
 end
