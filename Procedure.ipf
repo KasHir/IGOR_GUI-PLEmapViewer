@@ -31,12 +31,6 @@ function bar(m,n)
 	w2 = e22[m]
 	
 	
-	
-	//w3 = c11[4]
-	//w4 = c22[4]
-end
-
-function g()
 end
 
 function style_E()
@@ -82,13 +76,8 @@ Window Graph0() : Graph
 	appendtograph w4 vs w3
 	appendtograph w6 vs w5
 	
-	//color1("w4", 0, 255, 0)
 end
 
-
-function init()
-	
-end
 
 Function Get_Data(ctrlName,varNum,varStr,varName) : SetVariableControl
 	String ctrlName
