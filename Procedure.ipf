@@ -9,7 +9,7 @@
 #pragma rtGlobals=1		// Use modern global access method.
 
 Window Graph0() : Graph
-	resetGraph0()
+	resetGraph("Graph0")
 	display w1 vs w0
 	style_Wave()
 	color("w1", 255, 0, 0)
@@ -18,12 +18,13 @@ Window Graph0() : Graph
 	appendGraph0()
 end
 
-// If Graph 0 exists already, Kill it once
-function resetGraph0()
-	DoWindow Graph0
+// If Graph exists already, Kill it once
+function resetGraph(g)
+	string g
+	DoWindow $g
 	if (V_flag == 1)
 		// graph window exist
-		dowindow/k Graph0	// kill Graph0
+		dowindow/k $g	// kill Graph
 		return 1
 	else
 		// graph window unexist
