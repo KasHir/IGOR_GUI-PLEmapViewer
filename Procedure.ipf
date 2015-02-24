@@ -18,6 +18,28 @@ Window Graph0() : Graph
 	appendGraph0()
 end
 
+// ----------------------------------
+//  Coherent phonon map Graph
+// ----------------------------------
+Window Graph1() : Graph
+	resetGraph("Graph1")
+	display o0_e22 vs o0
+	style_Omg()	
+	color("o0_e22", 255, 0, 0)
+	appendToGraph o0_e11 vs o0
+	color("o0_e11", 200, 0, 0)
+
+	appendToGraph o1_e22 vs o1
+	color("o1_e22", 0, 255, 0)
+	appendToGraph o1_e11 vs o1
+	color("o1_e11", 0, 200, 0)
+
+	appendToGraph o2_e22 vs o2
+	color("o2_e22", 0, 0, 255)
+	appendToGraph o2_e11 vs o2
+	color("o2_e11", 0, 0, 200)
+end
+
 
 // If Graph exists already, Kill it once
 function resetGraph(g)
