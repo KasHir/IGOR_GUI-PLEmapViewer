@@ -76,8 +76,6 @@ Window Graph0() : Graph
 	display w1 vs w0
 	style_Wave()
 	color("w1", 255, 0, 0)
-	appendtograph w3 vs w2
-	appendtograph w5 vs w4
 	appendgraph0()
 	
 end
@@ -88,9 +86,37 @@ Function Get_Data(ctrlName,varNum,varStr,varName) : SetVariableControl
 	Variable varNum
 	String varStr
 	String varName
-	NVAR n0,m0,n1,m1,n2,m2
+	NVAR/Z n0,m0,n1,m1,n2,m2
+	
+	print ctrlName
+	print varNum
+	print varStr
+	print varName
+	
+	chkValue()
 End
 
+function chkValue()
+	NVAR/Z n0,m0,n1,m1,n2,m2
+	if( getE11(n0, m0) == -1 || getE22(n0, m0) == -1)
+		Button button0 disable=2
+	else
+		Button button0 disable=0
+	endif
+
+	if( getE11(n1, m1) == -1 || getE22(n1, m1) == -1)
+		Button button1 disable=2
+	else
+		Button button1 disable=0
+	endif
+	
+	if( getE11(n2, m2) == -1 || getE22(n2, m2) == -1 )
+		Button button2 disable=2
+	else
+		Button button2 disable=0
+	endif
+
+end
 
 Function ButtonProc(ctrlName) : ButtonControl
 	String ctrlName
