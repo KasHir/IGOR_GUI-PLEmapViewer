@@ -55,6 +55,16 @@ function getE22(n, m)
 	endif
 end
 
+function getOmega(n, m)
+	variable n,m
+	wave omega = $"Omg_n"+num2str(n)
+	
+	if( omega[m] > 0 )
+		return omega[m]
+	else
+		return -1
+	endif
+end
 
 function style_E()
 	// unused now
