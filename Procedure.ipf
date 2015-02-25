@@ -234,3 +234,24 @@ Function ButtonProc_2(ctrlName) : ButtonControl
 	o2_e11 = getE11(n2, m2)
 	o2_e22 = getE22(n2, m2)
 End
+
+// ----------------------------------
+//  Substitution values for wave
+// ----------------------------------
+function dammyE22vsE11()	// once is enough
+	make/N=180/O w_e11	// dammy
+	make/N=180/O w_e22	// dammy
+	variable i = 0
+	variable n = 19
+	variable m = 0
+	do
+		m=0
+		do
+			w_e11[i] = getE11(n, m)
+			w_e22[i] = getE22(n, m)
+			i = i+1
+			m = m+1
+		while(m<n)
+		n = n-1
+	while(n>4)
+end
