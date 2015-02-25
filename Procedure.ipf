@@ -15,7 +15,7 @@ Window Graph0() : Graph
 	resetGraph("Graph0")
 	display w1 vs w0
 	style_Wave()
-	color("w1", 255, 0, 0)
+	color("w1", 255, 7, 0)
 	
 	// plot the other points
 	appendGraph0()
@@ -28,19 +28,19 @@ Window Graph1() : Graph
 	resetGraph("Graph1")
 	display o0_e22 vs o0
 	style_Omg()	
-	color("o0_e22", 255, 0, 0)
+	color("o0_e22", 255, 7, 0)
 	appendToGraph o0_e11 vs o0
-	color("o0_e11", 200, 0, 0)
+	color("o0_e11", 255, 161, 20)
 
 	appendToGraph o1_e22 vs o1
-	color("o1_e22", 0, 255, 0)
+	color("o1_e22", 26, 133, 61)
 	appendToGraph o1_e11 vs o1
-	color("o1_e11", 0, 200, 0)
+	color("o1_e11", 26, 210, 61)
 
 	appendToGraph o2_e22 vs o2
-	color("o2_e22", 0, 0, 255)
+	color("o2_e22", 41, 0, 255)
 	appendToGraph o2_e11 vs o2
-	color("o2_e11", 0, 0, 200)
+	color("o2_e11", 41, 187, 255)
 end
 
 
@@ -129,12 +129,12 @@ function appendGraph0()
 	// append C(n1,m1)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w3 vs w2
-	color("w3", 0, 255, 0)	// green
+	color("w3", 26, 133, 61)	// green
 	
 	// append C(n2, m2)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w5 vs w4
-	color("w5", 0, 0, 255)	// blue
+	color("w5", 41, 0, 255)	// blue
 end
 
 // ----------------------------------
