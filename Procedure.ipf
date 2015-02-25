@@ -106,7 +106,7 @@ function style_Wave()
 	ModifyGraph grid=1,tick=2,mirror=1,gridHair=3;DelayUpdate
 	Label left "E22 (nm)";DelayUpdate
 	Label bottom "E11 (nm)";DelayUpdate
-	SetAxis left 0,3000;DelayUpdate
+	SetAxis left 0,2000;DelayUpdate
 	SetAxis bottom 0,3000;DelayUpdate
 	ModifyGraph height={Aspect,1}
 end
