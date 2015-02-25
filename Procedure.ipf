@@ -13,9 +13,9 @@
 // ----------------------------------
 Window Graph0() : Graph
 	resetGraph("Graph0")
-	display w1 vs w0
+	display w_e22 vs w_e11
+	style_dummyPlot("w_e22")
 	style_Wave()
-	color("w1", 255, 7, 0)
 	
 	// plot the other points
 	appendGraph0()
@@ -26,8 +26,14 @@ end
 // ----------------------------------
 Window Graph1() : Graph
 	resetGraph("Graph1")
-	display o0_e22 vs o0
+	display o_e22 vs o_e
+	style_dummyPlot("o_e22")
+	appendToGraph o_e11 vs o_e
+	style_dummyPlot("o_e11")
+	
 	style_Omg()	
+	
+	appendToGraph o0_e22 vs o0
 	color("o0_e22", 255, 7, 0)
 	appendToGraph o0_e11 vs o0
 	color("o0_e11", 255, 161, 00)
@@ -119,6 +125,12 @@ function style_Omg()
 	ModifyGraph height={Aspect,1}
 end
 
+function style_dummyPlot(w)
+	string w
+	color(w, 200, 200, 200)
+	ModifyGraph marker($w)=8
+end
+
 function color(w, r,g,b)
 	string w		//wave name
 	variable r,g,b	// R,G,B; 0 to 255
@@ -126,6 +138,11 @@ function color(w, r,g,b)
 end
 
 function appendGraph0()
+	// append C(n0,m0)
+	DoWindow/F graph0	// select target graph
+	appendToGraph w1 vs w0
+	color("w1", 255, 7, 0)	// red
+
 	// append C(n1,m1)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w3 vs w2
@@ -234,3 +251,44 @@ Function ButtonProc_2(ctrlName) : ButtonControl
 	o2_e11 = getE11(n2, m2)
 	o2_e22 = getE22(n2, m2)
 End
+
+// ----------------------------------
+//  Substitution values for wave
+// ----------------------------------
+function dummyE22vsE11()	// once is enough
+	make/N=180/O w_e11	// dummy
+	make/N=180/O w_e22	// dummy
+	variable i = 0
+	variable n = 19
+	variable m = 0
+	do
+		m=0
+		do
+			w_e11[i] = getE11(n, m)
+			w_e22[i] = getE22(n, m)
+			i = i+1
+			m = m+1
+		while(m<n)
+		n = n-1
+	while(n>4)
+end
+
+function dummyEvsOmega()	// once is enough
+	make/N=180/O o_e
+	make/N=180/O o_e11	// dummy
+	make/N=180/O o_e22	// dummy
+	variable i = 0
+	variable n = 19
+	variable m = 0
+	do
+		m=0
+		do
+			o_e[i] = getOmega(n, m)
+			o_e11[i] = getE11(n, m)
+			o_e22[i] = getE22(n, m)
+			i = i+1
+			m = m+1
+		while(m<n)
+		n = n-1
+	while(n>4)
+end
