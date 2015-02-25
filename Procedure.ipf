@@ -13,9 +13,10 @@
 // ----------------------------------
 Window Graph0() : Graph
 	resetGraph("Graph0")
-	display w1 vs w0
+	display w_e22 vs w_e11
+	color("w_e22", 200, 200, 200)
+	
 	style_Wave()
-	color("w1", 255, 7, 0)
 	
 	// plot the other points
 	appendGraph0()
@@ -126,6 +127,11 @@ function color(w, r,g,b)
 end
 
 function appendGraph0()
+	// append C(n0,m0)
+	DoWindow/F graph0	// select target graph
+	appendToGraph w1 vs w0
+	color("w1", 255, 7, 0)	// red
+
 	// append C(n1,m1)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w3 vs w2
