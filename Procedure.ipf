@@ -14,8 +14,7 @@
 Window Graph0() : Graph
 	resetGraph("Graph0")
 	display w_e22 vs w_e11
-	color("w_e22", 200, 200, 200)
-	
+	style_dammyPlot("w_e22")
 	style_Wave()
 	
 	// plot the other points
@@ -118,6 +117,12 @@ function style_Omg()
 	SetAxis left 0,3000;DelayUpdate
 	SetAxis bottom 0,600;DelayUpdate
 	ModifyGraph height={Aspect,1}
+end
+
+function style_dammyPlot(w)
+	string w
+	color(w, 200, 200, 200)
+	ModifyGraph marker($w)=8
 end
 
 function color(w, r,g,b)
