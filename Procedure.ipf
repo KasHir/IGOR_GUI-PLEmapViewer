@@ -30,7 +30,7 @@ Window Graph1() : Graph
 	style_Omg()	
 	color("o0_e22", 255, 7, 0)
 	appendToGraph o0_e11 vs o0
-	color("o0_e11", 255, 161, 20)
+	color("o0_e11", 255, 161, 00)
 
 	appendToGraph o1_e22 vs o1
 	color("o1_e22", 26, 133, 61)
