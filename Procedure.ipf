@@ -266,3 +266,23 @@ function dammyE22vsE11()	// once is enough
 		n = n-1
 	while(n>4)
 end
+
+function dammyEvsOmega()	// once is enough
+	make/N=180/O o_e
+	make/N=180/O o_e11	// dammy
+	make/N=180/O o_e22	// dammy
+	variable i = 0
+	variable n = 19
+	variable m = 0
+	do
+		m=0
+		do
+			o_e[i] = getOmega(n, m)
+			o_e11[i] = getE11(n, m)
+			o_e22[i] = getE22(n, m)
+			i = i+1
+			m = m+1
+		while(m<n)
+		n = n-1
+	while(n>4)
+end
