@@ -14,7 +14,7 @@
 Window Graph0() : Graph
 	resetGraph("Graph0")
 	display w_e22 vs w_e11
-	style_dammyPlot("w_e22")
+	style_dummyPlot("w_e22")
 	style_Wave()
 	
 	// plot the other points
@@ -27,9 +27,9 @@ end
 Window Graph1() : Graph
 	resetGraph("Graph1")
 	display o_e22 vs o_e
-	style_dammyPlot("o_e22")
+	style_dummyPlot("o_e22")
 	appendToGraph o_e11 vs o_e
-	style_dammyPlot("o_e11")
+	style_dummyPlot("o_e11")
 	
 	style_Omg()	
 	
@@ -125,7 +125,7 @@ function style_Omg()
 	ModifyGraph height={Aspect,1}
 end
 
-function style_dammyPlot(w)
+function style_dummyPlot(w)
 	string w
 	color(w, 200, 200, 200)
 	ModifyGraph marker($w)=8
@@ -255,9 +255,9 @@ End
 // ----------------------------------
 //  Substitution values for wave
 // ----------------------------------
-function dammyE22vsE11()	// once is enough
-	make/N=180/O w_e11	// dammy
-	make/N=180/O w_e22	// dammy
+function dummyE22vsE11()	// once is enough
+	make/N=180/O w_e11	// dummy
+	make/N=180/O w_e22	// dummy
 	variable i = 0
 	variable n = 19
 	variable m = 0
@@ -273,10 +273,10 @@ function dammyE22vsE11()	// once is enough
 	while(n>4)
 end
 
-function dammyEvsOmega()	// once is enough
+function dummyEvsOmega()	// once is enough
 	make/N=180/O o_e
-	make/N=180/O o_e11	// dammy
-	make/N=180/O o_e22	// dammy
+	make/N=180/O o_e11	// dummy
+	make/N=180/O o_e22	// dummy
 	variable i = 0
 	variable n = 19
 	variable m = 0
