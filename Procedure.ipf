@@ -26,8 +26,14 @@ end
 // ----------------------------------
 Window Graph1() : Graph
 	resetGraph("Graph1")
-	display o0_e22 vs o0
+	display o_e22 vs o_e
+	style_dammyPlot("o_e22")
+	appendToGraph o_e11 vs o_e
+	style_dammyPlot("o_e11")
+	
 	style_Omg()	
+	
+	appendToGraph o0_e22 vs o0
 	color("o0_e22", 255, 7, 0)
 	appendToGraph o0_e11 vs o0
 	color("o0_e11", 255, 161, 00)
