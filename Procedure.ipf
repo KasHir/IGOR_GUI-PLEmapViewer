@@ -164,6 +164,10 @@ Function Get_Data(ctrlName,varNum,varStr,varName) : SetVariableControl
 	String varName
 	NVAR/Z n0,m0,n1,m1,n2,m2
 	
+	updateValues0()	// red
+	updateValues1()	// green
+	updateValues2()	// blue
+	
 	chkValue()
 End
 
@@ -191,6 +195,23 @@ end
 
 Function ButtonProc(ctrlName) : ButtonControl
 	String ctrlName
+	updateValues0()	// update red point
+End
+
+Function ButtonProc_1(ctrlName) : ButtonControl
+	String ctrlName
+	updateValues1()	// update green point
+End
+
+Function ButtonProc_2(ctrlName) : ButtonControl
+	String ctrlName
+	updateValues2()	// update blue point
+End
+
+// ----------------------------------
+//  Update values for wave
+// ----------------------------------
+function updateValues0()
 	NVAR/Z n0,m0
 	
 	// E11, E22; PLE map
@@ -208,10 +229,9 @@ Function ButtonProc(ctrlName) : ButtonControl
 	o0 = getOmega(n0, m0)
 	o0_e11 = getE11(n0, m0)
 	o0_e22 = getE22(n0, m0)
-End
+end
 
-Function ButtonProc_1(ctrlName) : ButtonControl
-	String ctrlName
+function updateValues1()
 	NVAR/Z n1, m1
 	
 	// E11, E22; PLE map
@@ -229,10 +249,9 @@ Function ButtonProc_1(ctrlName) : ButtonControl
 	o1 = getOmega(n1, m1)
 	o1_e11 = getE11(n1, m1)
 	o1_e22 = getE22(n1, m1)
-End
+end
 
-Function ButtonProc_2(ctrlName) : ButtonControl
-	String ctrlName
+function updateValues2()
 	NVAR/Z n2,m2
 	
 	// E11, E22; PLE map
@@ -250,7 +269,7 @@ Function ButtonProc_2(ctrlName) : ButtonControl
 	o2 = getOmega(n2, m2)
 	o2_e11 = getE11(n2, m2)
 	o2_e22 = getE22(n2, m2)
-End
+end
 
 // ----------------------------------
 //  Substitution values for wave
