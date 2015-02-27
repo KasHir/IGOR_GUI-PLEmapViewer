@@ -34,19 +34,19 @@ Window Graph1() : Graph
 	style_Omg()	
 	
 	appendToGraph o0_e22 vs o0
-	color("o0_e22", 255, 7, 0)
+	color("o0_e22", E22_R[0], E22_G[0], E22_B[0])
 	appendToGraph o0_e11 vs o0
-	color("o0_e11", 255, 161, 00)
+	color("o0_e11", E11_R[0], E11_G[0], E11_B[0])
 
 	appendToGraph o1_e22 vs o1
-	color("o1_e22", 26, 133, 61)
+	color("o1_e22", E22_R[1], E22_G[1], E22_B[1])
 	appendToGraph o1_e11 vs o1
-	color("o1_e11", 26, 210, 61)
+	color("o1_e11", E11_R[1], E11_G[1], E11_B[1])
 
 	appendToGraph o2_e22 vs o2
-	color("o2_e22", 41, 0, 255)
+	color("o2_e22", E22_R[2], E22_G[2], E22_B[2])
 	appendToGraph o2_e11 vs o2
-	color("o2_e11", 41, 187, 255)
+	color("o2_e11", E11_R[2], E11_G[2], E11_B[2])
 end
 
 
@@ -128,30 +128,35 @@ end
 function style_dummyPlot(w)
 	string w
 	color(w, 200, 200, 200)
-	ModifyGraph marker($w)=8
+	ModifyGraph marker($w)=8	
+	ModifyGraph useMrkStrokeRGB($w)=0
 end
 
 function color(w, r,g,b)
 	string w		//wave name
 	variable r,g,b	// R,G,B; 0 to 255
 	ModifyGraph mode($w)=3,marker($w)=19,msize($w)=4,rgb($w)=(r/255*65280,g/255*65280,b/255*65280)
+	ModifyGraph useMrkStrokeRGB($w)=1
 end
 
 function appendGraph0()
+	wave r = E22_R
+	wave g = E22_G
+	wave b = E22_B
 	// append C(n0,m0)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w1 vs w0
-	color("w1", 255, 7, 0)	// red
+	color("w1", r[0], g[0], b[0])
 
 	// append C(n1,m1)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w3 vs w2
-	color("w3", 26, 133, 61)	// green
+	color("w3", r[1], g[1], b[1])	
 	
 	// append C(n2, m2)
 	DoWindow/F graph0	// select target graph
 	appendToGraph w5 vs w4
-	color("w5", 41, 0, 255)	// blue
+	color("w5",  r[2], g[2], b[2])	
 end
 
 // ----------------------------------
